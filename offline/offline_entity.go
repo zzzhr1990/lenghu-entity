@@ -5,7 +5,7 @@ import "time"
 type OfflineInfo struct {
 	//logger *zap.Logger
 
-	Hash      string    `json:"hash" gorm:"primarykey, type:varchar(80)"`
+	Hash      string    `json:"hash" gorm:"primary_key;type:varchar(80)"`
 	CreatedAt time.Time `json:"createdAt"`
 	UpdatedAt time.Time `json:"updatedAt"`
 	URL       string    `json:"url"`
