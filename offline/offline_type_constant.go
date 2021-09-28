@@ -10,3 +10,12 @@ const (
 	IPFS
 	ThunderLink
 )
+
+type DownloadStatus int
+
+const (
+	Added                      = iota
+	Downloading DownloadStatus = 10 * iota
+	Complete
+	Error
+)
