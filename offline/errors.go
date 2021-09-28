@@ -17,3 +17,9 @@ var ErrorBadURLOrTorrentFile = &responses.ResponseEntity{
 	Reference: "BAD_URL_OR_TORRENT",
 	Message:   "Url or torrent cannot be parsed",
 }
+
+var ErrorMissingType = &responses.ResponseEntity{
+	Status:    http.StatusBadRequest,
+	Reference: "MISSING_TYPE",
+	Message:   "Missing download type",
+}
