@@ -16,3 +16,18 @@ type OfflineInfo struct {
 	Source    string    `json:"source"`
 	Name      string    `json:"name"`
 }
+
+type OofFileMapping struct {
+	//logger *zap.Logger
+
+	ID        string    `bson:"_id"`
+	CreatedAt time.Time `bson:"createdAt"`
+	AccessAt  time.Time `bson:"accessAt"`
+	UpdatedAt time.Time `json:"updatedAt"`
+	SliceHash string    `bson:"sliceHash"`
+	FileSize  int64     `bson:"fileSize"`
+	Bucket    string    `bson:"bucket"`
+	Key       string    `json:"key"`
+	Source    string    `bson:"source"`
+	Name      string    `bson:"name"`
+}
