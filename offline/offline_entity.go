@@ -31,5 +31,6 @@ type OofFileMapping struct {
 	Source    string    `bson:"source"`
 	Name      string    `bson:"name"`
 	Type      int       `bson:"type"`
+	Status    int       `bson:"status"`
 	WcsEtag   string    `bson:"wcsEtag"`
 }
