@@ -20,17 +20,17 @@ type OfflineInfo struct {
 type OofFileMapping struct {
 	//logger *zap.Logger
 
-	ID        string    `bson:"_id"`
-	CreatedAt time.Time `bson:"createdAt"`
-	AccessAt  time.Time `bson:"accessAt"`
-	UpdatedAt time.Time `bson:"updatedAt"`
-	SliceHash string    `bson:"sliceHash"`
-	FileSize  int64     `bson:"fileSize"`
-	Bucket    string    `bson:"bucket"`
-	Key       string    `bson:"key"`
-	Source    string    `bson:"source"`
-	Name      string    `bson:"name"`
-	Type      int       `bson:"type"`
-	Status    int       `bson:"status"`
-	WcsEtag   string    `bson:"wcsEtag"`
+	ID        string    `bson:"_id" json:"id"`
+	CreatedAt time.Time `bson:"createdAt" json:"createdAt"`
+	AccessAt  time.Time `bson:"accessAt" json:"accessAt"`
+	UpdatedAt time.Time `bson:"updatedAt" json:"updatedAt"`
+	SliceHash string    `bson:"sliceHash" json:"sliceHash"`
+	FileSize  int64     `bson:"fileSize" json:"fileSize"`
+	Bucket    string    `bson:"bucket" json:"bucket"`
+	Key       string    `bson:"key" json:"key"`
+	Source    string    `bson:"source" json:"source"`
+	Name      string    `bson:"name" json:"name"`
+	Type      int       `bson:"type" json:"type"`
+	Status    int       `bson:"status" json:"status"`
+	WcsEtag   string    `bson:"wcsEtag" json:"wcsEtag"`
 }
