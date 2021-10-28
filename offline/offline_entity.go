@@ -34,12 +34,12 @@ type OfflineQueue struct {
 
 type FastDownloadQueue struct {
 	//logger *zap.Logger
-	ID        int64     `gorm:"primary_key"`
-	WcsHash   string    `json:"wcsHash" gorm:"type:varchar(80)"`
-	CloudHash string    `json:"cloudHash" gorm:"type:varchar(80)"`
-	CreatedAt time.Time `json:"createdAt"`
-	FileSize  int64     `json:"fileSize"`
-	Status    int       `json:"status"`
+	ID           int64     `gorm:"primary_key"`
+	WcsHash      string    `json:"wcsHash" gorm:"type:varchar(80)"`
+	ColdLakeHash string    `json:"coldLakeHash" gorm:"type:varchar(80)"`
+	CreatedAt    time.Time `json:"createdAt"`
+	FileSize     int64     `json:"fileSize"`
+	Status       int       `json:"status"`
 }
 
 type OofFileMapping struct {
