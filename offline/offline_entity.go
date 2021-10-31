@@ -13,8 +13,8 @@ type OfflineInfo struct {
 	FileSize  int64     `json:"fileSize"`
 	Status    int       `json:"status"`
 	Type      int       `json:"type"`
-	Source    string    `json:"source"`
-	Name      string    `json:"name"`
+	Source    string    `json:"source" gorm:"type:varchar(180)"`
+	Name      string    `json:"name" gorm:"type:varchar(80)"`
 }
 
 type OfflineQueue struct {
@@ -28,8 +28,35 @@ type OfflineQueue struct {
 	FileSize  int64     `json:"fileSize"`
 	Status    int       `json:"status"`
 	Type      int       `json:"type"`
-	Source    string    `json:"source"`
-	Name      string    `json:"name"`
+	Source    string    `json:"source" gorm:"type:varchar(180)"`
+	Name      string    `json:"name" gorm:"type:varchar(80)"`
+}
+
+type FastMappingInfo struct {
+	//logger *zap.Logger
+	ID            int64     `gorm:"primary_key"`
+	Hash          string    `json:"hash" gorm:"type:varchar(80)"`
+	CloudLakeHash string    `json:"cloudLakeHash" gorm:"type:varchar(80)"`
+	CreatedAt     time.Time `json:"createdAt"`
+	UpdatedAt     time.Time `json:"updatedAt"`
+	//URL       string    `json:"url"`
+	//Torrent   string    `json:"torrent"` // Torrent File Info (Base64)
+	FileSize int64 `json:"fileSize"`
+	//Status    int       `json:"status"`
+	Type int `json:"type"`
+	// Source    string    `json:"source"`
+	// Name      string    `json:"name"`
+}
+
+type FastMappingQueue struct {
+	//logger *zap.Logger
+	CloudLakeHash string    `json:"cloudLakeHash" gorm:"primary_key,type:varchar(80)"`
+	Hash          string    `json:"hash" gorm:"type:varchar(80)"`
+	CreatedAt     time.Time `json:"createdAt"`
+	UpdatedAt     time.Time `json:"updatedAt"`
+	FileSize      int64     `json:"fileSize"`
+	Status        int       `json:"status"`
+	Type          int       `json:"type"`
 }
 
 type FastDownloadQueue struct {
@@ -38,7 +65,7 @@ type FastDownloadQueue struct {
 	WcsHash      string    `json:"wcsHash" gorm:"type:varchar(80)"`
 	ColdLakeHash string    `json:"coldLakeHash" gorm:"type:varchar(80)"`
 	CreatedAt    time.Time `json:"createdAt"`
-	FileSize     int64     `json:"fileSize"`
+	FileSize     int64     `json:"fileSize" gorm:"primary_key"`
 	Status       int       `json:"status"`
 }
 
