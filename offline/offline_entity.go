@@ -5,7 +5,7 @@ import "time"
 type OfflineInfo struct {
 	//logger *zap.Logger
 
-	Hash      string    `json:"hash" gorm:"primary_key;type:varchar(80)"`
+	Hash      string    `json:"hash" gorm:"primaryKey;type:varchar(80)"`
 	CreatedAt time.Time `json:"createdAt"`
 	UpdatedAt time.Time `json:"updatedAt"`
 	URL       string    `json:"url"`
@@ -19,8 +19,8 @@ type OfflineInfo struct {
 
 type OfflineQueue struct {
 	//logger *zap.Logger
-	ID        int64     `gorm:"primary_key"`
-	Hash      string    `json:"hash" gorm:"type:varchar(80)"`
+	ID        int64     `gorm:"primaryKey"`
+	Hash      string    `json:"hash" gorm:"type:varchar(80), uniqueIndex"`
 	CreatedAt time.Time `json:"createdAt"`
 	UpdatedAt time.Time `json:"updatedAt"`
 	URL       string    `json:"url"`
@@ -34,11 +34,11 @@ type OfflineQueue struct {
 
 type FastMappingInfo struct {
 	//logger *zap.Logger
-	ID            int64     `gorm:"primary_key"`
-	Hash          string    `json:"hash" gorm:"type:varchar(80)"`
-	CloudLakeHash string    `json:"cloudLakeHash" gorm:"type:varchar(80)"`
-	CreatedAt     time.Time `json:"createdAt"`
-	UpdatedAt     time.Time `json:"updatedAt"`
+	CloudLakeHash string `json:"cloudLakeHash" gorm:"type:varchar(80), primaryKey"`
+	WcsHash       string `json:"wcsHash" gorm:"type:varchar(80)"`
+
+	CreatedAt time.Time `json:"createdAt"`
+	UpdatedAt time.Time `json:"updatedAt"`
 	//URL       string    `json:"url"`
 	//Torrent   string    `json:"torrent"` // Torrent File Info (Base64)
 	FileSize int64 `json:"fileSize"`
@@ -49,23 +49,23 @@ type FastMappingInfo struct {
 }
 
 type FastMappingQueue struct {
-	//logger *zap.Logger
-	CloudLakeHash string    `json:"cloudLakeHash" gorm:"primary_key,type:varchar(80)"`
-	Hash          string    `json:"hash" gorm:"type:varchar(80)"`
-	CreatedAt     time.Time `json:"createdAt"`
-	UpdatedAt     time.Time `json:"updatedAt"`
-	FileSize      int64     `json:"fileSize"`
-	Status        int       `json:"status"`
-	Type          int       `json:"type"`
+	ID            int64  `gorm:"primaryKey"`
+	CloudLakeHash string `json:"cloudLakeHash" gorm:"uniqueIndex,type:varchar(80)"`
+	// Hash          string    `json:"hash" gorm:"type:varchar(80)"`
+	CreatedAt time.Time `json:"createdAt"`
+	UpdatedAt time.Time `json:"updatedAt"`
+	FileSize  int64     `json:"fileSize"`
+	Status    int       `json:"status"`
+	Type      int       `json:"type"`
 }
 
 type FastDownloadQueue struct {
 	//logger *zap.Logger
-	ID           int64     `gorm:"primary_key"`
+	ID           int64     `gorm:"primaryKey"`
 	WcsHash      string    `json:"wcsHash" gorm:"type:varchar(80)"`
 	ColdLakeHash string    `json:"coldLakeHash" gorm:"type:varchar(80)"`
 	CreatedAt    time.Time `json:"createdAt"`
-	FileSize     int64     `json:"fileSize" gorm:"primary_key"`
+	FileSize     int64     `json:"fileSize" gorm:"primaryKey"`
 	Status       int       `json:"status"`
 }
 
