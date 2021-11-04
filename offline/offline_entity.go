@@ -20,7 +20,7 @@ type OfflineInfo struct {
 type OfflineQueue struct {
 	//logger *zap.Logger
 	ID        int64     `gorm:"primaryKey"`
-	Hash      string    `json:"hash" gorm:"type:varchar(80), uniqueIndex"`
+	Hash      string    `json:"hash" gorm:"type:varchar(80);uniqueIndex"`
 	CreatedAt time.Time `json:"createdAt"`
 	UpdatedAt time.Time `json:"updatedAt"`
 	URL       string    `json:"url"`
@@ -34,7 +34,7 @@ type OfflineQueue struct {
 
 type FastMappingInfo struct {
 	//logger *zap.Logger
-	CloudLakeHash string `json:"cloudLakeHash" gorm:"type:varchar(80), primaryKey"`
+	CloudLakeHash string `json:"cloudLakeHash" gorm:"type:varchar(80);primaryKey"`
 	WcsHash       string `json:"wcsHash" gorm:"type:varchar(80)"`
 
 	CreatedAt time.Time `json:"createdAt"`
@@ -50,7 +50,7 @@ type FastMappingInfo struct {
 
 type FastMappingQueue struct {
 	ID            int64  `gorm:"primaryKey"`
-	CloudLakeHash string `json:"cloudLakeHash" gorm:"uniqueIndex,type:varchar(80)"`
+	CloudLakeHash string `json:"cloudLakeHash" gorm:"uniqueIndex;type:varchar(80)"`
 	// Hash          string    `json:"hash" gorm:"type:varchar(80)"`
 	CreatedAt time.Time `json:"createdAt"`
 	UpdatedAt time.Time `json:"updatedAt"`
