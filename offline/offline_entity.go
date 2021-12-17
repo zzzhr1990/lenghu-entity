@@ -13,6 +13,7 @@ type OfflineInfo struct {
 	FileSize  int64     `json:"fileSize"`
 	Status    int       `json:"status"`
 	Type      int       `json:"type"`
+	Percent   int       `json:"percent"`
 	Source    string    `json:"source" gorm:"type:varchar(180)"`
 	Name      string    `json:"name" gorm:"type:varchar(80)"`
 }
