@@ -31,6 +31,7 @@ type OfflineQueue struct {
 	Type      int       `json:"type"`
 	Source    string    `json:"source" gorm:"type:varchar(180)"`
 	Name      string    `json:"name" gorm:"type:varchar(80)"`
+	Processor string    `json:"processor" gorm:"type:varchar(80);index"`
 }
 
 type FastMappingInfo struct {
