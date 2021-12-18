@@ -29,6 +29,7 @@ type OfflineQueue struct {
 	FileSize  int64     `json:"fileSize"`
 	Status    int       `json:"status"`
 	Type      int       `json:"type"`
+	Progress  int       `json:"progress"`
 	Source    string    `json:"source" gorm:"type:varchar(180)"`
 	Name      string    `json:"name" gorm:"type:varchar(80)"`
 	Processor string    `json:"processor" gorm:"type:varchar(80);index"`
