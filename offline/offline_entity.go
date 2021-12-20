@@ -2,6 +2,7 @@ package offline
 
 import "time"
 
+/*
 type OfflineInfo struct {
 	//logger *zap.Logger
 
@@ -17,6 +18,7 @@ type OfflineInfo struct {
 	Source    string    `json:"source" gorm:"type:varchar(180)"`
 	Name      string    `json:"name" gorm:"type:varchar(80)"`
 }
+*/
 
 type OfflineQueue struct {
 	//logger *zap.Logger
